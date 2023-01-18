@@ -1,0 +1,7 @@
+Time Log
+
+setup new environment  2H
+Init, UI, fetch data and navigation 5H
+Skelton and some improvements 0.5H
+
+Total ~7H

@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 10,
+    paddingVertical: 16,
     borderBottomColor: '#e7e7e7',
     borderBottomWidth: 1,
   },

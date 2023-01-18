@@ -10,6 +10,7 @@ import {ListScreenRouteProp} from 'src/navigation/types';
 import {useFetch} from 'src/hooks';
 
 import {styles} from './ListStyles';
+import UsersPlaceholder from 'src/components/Placeholder/UsersPlaceholder';
 
 const url = `${BASE_URL}/users/`;
 
@@ -42,7 +43,11 @@ const ListScreen: React.FC<{}> = () => {
   return (
     <View style={styles.container}>
       {error && <Text style={globalStyles.error}>Not found.</Text>}
-      {loading && <ActivityIndicator color="blue" />}
+      {loading && (
+        <View>
+          <UsersPlaceholder />
+        </View>
+      )}
       {data && (
         <FlatList
           data={data}

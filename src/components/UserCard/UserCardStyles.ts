@@ -24,5 +24,11 @@ export const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomColor: '#e7e7e7',
     borderBottomWidth: 1,
+    gap: 16,
+  },
+  value: {
+    flex: 1,
+    flexWrap: 'wrap',
+    textAlign: 'right',
   },
 });

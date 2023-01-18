@@ -2,7 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   title: {
-    fontSize: 22,
+    marginTop: 16,
+    fontWeight: '700',
+    fontSize: 24,
     textAlign: 'center',
   },
   resultContainer: {

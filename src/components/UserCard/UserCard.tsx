@@ -24,6 +24,34 @@ const UserCard = ({
     navigation.dispatch(pushAction);
   };
 
+  const renderDetails = () => {
+    return (
+      <>
+        <View style={styles.row}>
+          <Text style={styles.title}>Name</Text>
+          <Text style={styles.value}>{data.name}</Text>
+        </View>
+
+        <View style={styles.row}>
+          <Text style={styles.title}>Description</Text>
+          <Text style={styles.value}>{data.bio}</Text>
+        </View>
+
+        <View style={styles.row}>
+          <TouchableOpacity onPress={() => goToList(ListType.followers)}>
+            <Text>
+              <Text style={styles.title}>{data.followers}</Text> followers
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => goToList(ListType.following)}>
+            <Text>
+              <Text style={styles.title}>{data.following}</Text> following
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </>
+    );
+  };
   return (
     <TouchableOpacity
       onPress={() => onPress?.()}
@@ -32,34 +60,9 @@ const UserCard = ({
       <Image style={styles.avatar} source={{uri: data.avatar_url}} />
       <View style={styles.row}>
         <Text style={styles.title}>Username</Text>
-        <Text>{data.login}</Text>
+        <Text style={styles.value}>{data.login}</Text>
       </View>
-      {withDetails ? (
-        <>
-          <View style={styles.row}>
-            <Text style={styles.title}>Name</Text>
-            <Text>{data.name}</Text>
-          </View>
-
-          <View style={styles.row}>
-            <Text style={styles.title}>Description</Text>
-            <Text>{data.bio}</Text>
-          </View>
-
-          <View style={styles.row}>
-            <TouchableOpacity onPress={() => goToList(ListType.followers)}>
-              <Text>
-                <Text style={styles.title}>{data.followers}</Text> followers
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => goToList(ListType.following)}>
-              <Text>
-                <Text style={styles.title}>{data.following}</Text> following
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </>
-      ) : null}
+      {withDetails ? renderDetails() : null}
     </TouchableOpacity>
   );
 };

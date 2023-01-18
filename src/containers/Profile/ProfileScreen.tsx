@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
-import {Text, View, ActivityIndicator} from 'react-native';
+import {Text, View} from 'react-native';
 import UserCard from 'src/components/UserCard';
 import {ProfileScreenRouteProp} from '../../navigation/types';
 import {useFetch} from 'src/hooks';
@@ -9,6 +9,7 @@ import {User} from 'src/types';
 import {BASE_URL} from 'src/utils/constants';
 
 import {styles} from './ProfileStyles';
+import UserPlaceholder from 'src/components/Placeholder/UserPlaceholder';
 
 const url = `${BASE_URL}/users/`;
 
@@ -21,7 +22,11 @@ const ProfileScreen: React.FC<{}> = () => {
   return (
     <View style={styles.container}>
       {error && <Text style={globalStyles.error}>Not found.</Text>}
-      {loading && <ActivityIndicator color="blue" />}
+      {loading && (
+        <View>
+          <UserPlaceholder />
+        </View>
+      )}
       {data && <UserCard data={data} withDetails />}
     </View>
   );

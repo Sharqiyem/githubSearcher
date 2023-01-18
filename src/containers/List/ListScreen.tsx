@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {StackActions, useNavigation, useRoute} from '@react-navigation/native';
 import React from 'react';
-import {View, Text, ActivityIndicator, FlatList} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {User} from 'src/types';
 import UserCard from 'src/components/UserCard';
 import {globalStyles} from 'src/utils/globalStyles';
